@@ -28,6 +28,34 @@ def encrypt(string, rot):
   
   return newstring
 
+def decrypt(string,rot):
+  newstring = ""
+  shiftidx = 0
+  shifts = shiftnums(rot)
+  for i in range(len(string)):
+        chrnumber = ord(string[i])
+        chrnumber = int(chrnumber)
+        if chrnumber > 64 and chrnumber < 91:
+            chrnumber = chrnumber - shifts[shiftidx]
+            shiftidx += 1
+            if shiftidx == len(shifts):
+              shiftidx = 0
+            if chrnumber < 65:
+                chrnumber =  65 % chrnumber
+                chrnumber = 91 - chrnumber
+        elif chrnumber > 96 and chrnumber < 123:
+            chrnumber = chrnumber - shifts[shiftidx]
+            shiftidx += 1
+            if shiftidx == len(shifts):
+              shiftidx = 0
+            if chrnumber < 97:
+                chrnumber = 97 % chrnumber
+                chrnumber = 123 - chrnumber
+        newchr = chr(chrnumber)
+        newstring = newstring + newchr
+  
+  return newstring
+
 def main():
   switch = "y"
   while switch == "y" or switch == "Y":
