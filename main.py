@@ -19,7 +19,7 @@ page_footer = """
 encrypt_form = """
       <form action='/' method='post'>
       <label>
-      Encryption Key <input type='text' name='rot' value='%(rot)s'/><label><br>
+      Encryption Key: <input type='text' name='rot' value='%(rot)s'/><label><br>
       <br>Message to encrypt: <br><textarea rows='4' cols='50' name='message'>%(encrypted_message)s</textarea><br>
       <input type='submit' value='Encrypt'/><br>
       </form>
