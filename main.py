@@ -51,11 +51,13 @@ class MainPage(webapp2.RequestHandler):
         encrypted_message = encrypt(message,rot)
         encrypted_message = cgi.escape(encrypted_message, quote=True)
         decrypted_message = crypted
+        rot = cgi.escape(rot, quote=True)
       
       if decrypt_button:
         decrypted_message = decrypt(crypted,rot)
         decrypted_message = cgi.escape(decrypted_message, quote=True)
         encrypted_message = message
+        rot = cgi.escape(rot, quote=True)
       content = page_header + encrypt_form % {'encrypted_message':encrypted_message, 'rot':rot, 'decrypted_message':decrypted_message} + page_footer
       self.response.write(content)
       encrypt_button = False
