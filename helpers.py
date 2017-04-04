@@ -8,6 +8,6 @@ def shiftnums(rotphrase):
     elif ord(rotphrase[i]) > 47 and ord(rotphrase[i]) < 58:
       shift = int(rotphrase[i])
     else:
-      shift = 0
+      return False
     shifts.append(shift)
   return shifts
